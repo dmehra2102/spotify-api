@@ -39,14 +39,13 @@ type JWTClaims struct {
 	Email  string `json:"email"`
 }
 
-func NewUser(email, name, hashedPassword string) *User {
+func NewUser(email, name string) *User {
 	now := time.Now()
 	return &User{
-		ID:           uuid.New().String(),
-		Email:        email,
-		Name:         name,
-		HashPassword: hashedPassword,
-		CreatedAt:    now,
-		UpdatedAt:    now,
+		ID:        uuid.New().String(),
+		Email:     email,
+		Name:      name,
+		CreatedAt: now,
+		UpdatedAt: now,
 	}
 }
